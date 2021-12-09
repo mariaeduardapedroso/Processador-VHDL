@@ -1,0 +1,1190 @@
+Analysis & Synthesis report for processador
+Thu Dec 09 10:11:15 2021
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 13. lpm_mult Parameter Settings by Entity Instance
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Dec 09 10:11:15 2021       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; processador                                 ;
+; Top-level Entity Name              ; Processador                                 ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 3,890                                       ;
+;     Total combinational functions  ; 3,890                                       ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 59                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 6                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DCF484C7G     ;                    ;
+; Top-level entity name                                            ; processador        ; processador        ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.5%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; processador.vhd                  ; yes             ; User VHDL File               ; C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf             ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc           ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc          ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc             ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc             ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc             ;         ;
+; db/mult_qgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/db/mult_qgs.tdf ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 3,890           ;
+;                                             ;                 ;
+; Total combinational functions               ; 3890            ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 1080            ;
+;     -- 3 input functions                    ; 1986            ;
+;     -- <=2 input functions                  ; 824             ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 2125            ;
+;     -- arithmetic mode                      ; 1765            ;
+;                                             ;                 ;
+; Total registers                             ; 0               ;
+;     -- Dedicated logic registers            ; 0               ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 59              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 6               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; Opcode[3]~input ;
+; Maximum fan-out                             ; 218             ;
+; Total fan-out                               ; 12092           ;
+; Average fan-out                             ; 3.01            ;
++---------------------------------------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                 ; Entity Name ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------+-------------+--------------+
+; |Processador                    ; 3890 (3862)         ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 59   ; 0            ; 0          ; |Processador                                        ; Processador ; work         ;
+;    |lpm_mult:Mult0|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0                         ; lpm_mult    ; work         ;
+;       |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0|mult_qgs:auto_generated ; mult_qgs    ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 6           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 2           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------+------------------------+
+; disp1[7]$latch                                       ; Mux248              ; yes                    ;
+; disp1[6]$latch                                       ; Mux248              ; yes                    ;
+; disp1[5]$latch                                       ; Mux248              ; yes                    ;
+; disp1[4]$latch                                       ; Mux248              ; yes                    ;
+; disp1[3]$latch                                       ; Mux248              ; yes                    ;
+; disp1[2]$latch                                       ; Mux248              ; yes                    ;
+; disp1[1]$latch                                       ; Mux248              ; yes                    ;
+; disp1[0]$latch                                       ; Mux248              ; yes                    ;
+; disp2[7]$latch                                       ; Mux248              ; yes                    ;
+; disp2[6]$latch                                       ; Mux248              ; yes                    ;
+; disp2[5]$latch                                       ; Mux248              ; yes                    ;
+; disp2[4]$latch                                       ; Mux248              ; yes                    ;
+; disp2[3]$latch                                       ; Mux248              ; yes                    ;
+; disp2[2]$latch                                       ; Mux248              ; yes                    ;
+; disp2[1]$latch                                       ; Mux248              ; yes                    ;
+; disp2[0]$latch                                       ; Mux248              ; yes                    ;
+; disp3[7]$latch                                       ; Mux248              ; yes                    ;
+; disp3[6]$latch                                       ; Mux248              ; yes                    ;
+; disp3[5]$latch                                       ; Mux248              ; yes                    ;
+; disp3[4]$latch                                       ; Mux248              ; yes                    ;
+; disp3[3]$latch                                       ; Mux248              ; yes                    ;
+; disp3[2]$latch                                       ; Mux248              ; yes                    ;
+; disp3[1]$latch                                       ; Mux248              ; yes                    ;
+; disp3[0]$latch                                       ; Mux248              ; yes                    ;
+; disp4[7]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[6]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[5]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[4]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[3]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[2]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[1]$latch                                       ; disp4[0]            ; yes                    ;
+; disp4[0]$latch                                       ; disp4[0]            ; yes                    ;
+; disp5[6]$latch                                       ; disp5[0]            ; yes                    ;
+; disp5[5]$latch                                       ; disp5[0]            ; yes                    ;
+; disp5[4]$latch                                       ; disp5[0]            ; yes                    ;
+; disp5[3]$latch                                       ; disp5[0]            ; yes                    ;
+; disp5[2]$latch                                       ; disp5[0]            ; yes                    ;
+; disp5[1]$latch                                       ; disp5[0]            ; yes                    ;
+; disp5[0]$latch                                       ; disp5[0]            ; yes                    ;
+; disp6[6]$latch                                       ; disp6[6]            ; yes                    ;
+; disp6[5]$latch                                       ; disp6[6]            ; yes                    ;
+; disp6[4]$latch                                       ; disp6[6]            ; yes                    ;
+; disp6[3]$latch                                       ; disp6[6]            ; yes                    ;
+; disp6[2]$latch                                       ; disp6[6]            ; yes                    ;
+; disp6[1]$latch                                       ; disp6[6]            ; yes                    ;
+; disp6[0]$latch                                       ; disp6[6]            ; yes                    ;
+; valorA[31]                                           ; Mux222              ; yes                    ;
+; valorB[31]                                           ; Mux188              ; yes                    ;
+; valorA[30]                                           ; Mux222              ; yes                    ;
+; valorB[30]                                           ; Mux188              ; yes                    ;
+; valorA[29]                                           ; Mux222              ; yes                    ;
+; valorB[29]                                           ; Mux188              ; yes                    ;
+; valorA[28]                                           ; Mux222              ; yes                    ;
+; valorB[28]                                           ; Mux188              ; yes                    ;
+; valorA[27]                                           ; Mux222              ; yes                    ;
+; valorB[27]                                           ; Mux188              ; yes                    ;
+; valorA[26]                                           ; Mux222              ; yes                    ;
+; valorB[26]                                           ; Mux188              ; yes                    ;
+; valorA[25]                                           ; Mux222              ; yes                    ;
+; valorB[25]                                           ; Mux188              ; yes                    ;
+; valorA[24]                                           ; Mux222              ; yes                    ;
+; valorB[24]                                           ; Mux188              ; yes                    ;
+; valorA[23]                                           ; Mux222              ; yes                    ;
+; valorB[23]                                           ; Mux188              ; yes                    ;
+; valorA[22]                                           ; Mux222              ; yes                    ;
+; valorB[22]                                           ; Mux188              ; yes                    ;
+; valorA[21]                                           ; Mux222              ; yes                    ;
+; valorB[21]                                           ; Mux188              ; yes                    ;
+; valorA[20]                                           ; Mux222              ; yes                    ;
+; valorB[20]                                           ; Mux188              ; yes                    ;
+; valorA[19]                                           ; Mux222              ; yes                    ;
+; valorB[19]                                           ; Mux188              ; yes                    ;
+; valorA[18]                                           ; Mux222              ; yes                    ;
+; valorB[18]                                           ; Mux188              ; yes                    ;
+; valorA[17]                                           ; Mux222              ; yes                    ;
+; valorB[17]                                           ; Mux188              ; yes                    ;
+; valorA[16]                                           ; Mux222              ; yes                    ;
+; valorB[16]                                           ; Mux188              ; yes                    ;
+; valorA[15]                                           ; Mux222              ; yes                    ;
+; valorB[15]                                           ; Mux188              ; yes                    ;
+; valorA[14]                                           ; Mux222              ; yes                    ;
+; valorB[14]                                           ; Mux188              ; yes                    ;
+; valorA[13]                                           ; Mux222              ; yes                    ;
+; valorB[13]                                           ; Mux188              ; yes                    ;
+; valorA[12]                                           ; Mux222              ; yes                    ;
+; valorB[12]                                           ; Mux188              ; yes                    ;
+; valorA[11]                                           ; Mux222              ; yes                    ;
+; valorB[11]                                           ; Mux188              ; yes                    ;
+; valorA[10]                                           ; Mux222              ; yes                    ;
+; valorB[10]                                           ; Mux188              ; yes                    ;
+; valorA[9]                                            ; Mux222              ; yes                    ;
+; valorB[9]                                            ; Mux188              ; yes                    ;
+; valorA[8]                                            ; Mux222              ; yes                    ;
+; valorB[8]                                            ; Mux188              ; yes                    ;
+; valorA[7]                                            ; Mux222              ; yes                    ;
+; valorB[7]                                            ; Mux188              ; yes                    ;
+; valorA[6]                                            ; Mux222              ; yes                    ;
+; valorB[6]                                            ; Mux188              ; yes                    ;
+; valorA[5]                                            ; Mux222              ; yes                    ;
+; valorB[5]                                            ; Mux188              ; yes                    ;
+; Number of user-specified and inferred latches = 206  ;                     ;                        ;
++------------------------------------------------------+---------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Processador|disp6[3]      ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Processador|Mux242        ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; No         ; |Processador|aux           ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |Processador|Mux182        ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |Processador|Mux7          ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 20 LEs               ; 24 LEs                 ; No         ; |Processador|disp4[5]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux109        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux115        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux116        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux120        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux126        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux131        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Processador|Mux132        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Processador|Mux134        ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Processador|Mux105        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux101        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux97         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux93         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux89         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux87         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux83         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux76         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux72         ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |Processador|disp4[2]      ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |Processador|disp4[0]      ;
+; 9:1                ; 16 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; No         ; |Processador|Mux213        ;
+; 9:1                ; 12 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |Processador|Mux196        ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |Processador|Mux192        ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |Processador|disp5[5]      ;
+; 11:1               ; 28 bits   ; 196 LEs       ; 168 LEs              ; 28 LEs                 ; No         ; |Processador|aux           ;
+; 11:1               ; 27 bits   ; 189 LEs       ; 162 LEs              ; 27 LEs                 ; No         ; |Processador|aux           ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; No         ; |Processador|Mux61         ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; No         ; |Processador|Mux13         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux71         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|Mux36         ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 64 LEs               ; 80 LEs                 ; No         ; |Processador|Mux146        ;
+; 14:1               ; 12 bits   ; 108 LEs       ; 60 LEs               ; 48 LEs                 ; No         ; |Processador|Mux164        ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 18 LEs               ; 15 LEs                 ; No         ; |Processador|Mux176        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32       ; Untyped             ;
+; LPM_WIDTHB                                     ; 32       ; Untyped             ;
+; LPM_WIDTHP                                     ; 64       ; Untyped             ;
+; LPM_WIDTHR                                     ; 64       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32             ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 64             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 59                          ;
+; cycloneiii_lcell_comb ; 3891                        ;
+;     arith             ; 1765                        ;
+;         2 data inputs ; 707                         ;
+;         3 data inputs ; 1058                        ;
+;     normal            ; 2126                        ;
+;         0 data inputs ; 11                          ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 928                         ;
+;         4 data inputs ; 1080                        ;
+; cycloneiii_mac_mult   ; 3                           ;
+; cycloneiii_mac_out    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 107.60                      ;
+; Average LUT depth     ; 83.51                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:31     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Thu Dec 09 10:10:17 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processador -c processador
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file processador.vhd
+    Info (12022): Found design unit 1: Processador-main File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 26
+    Info (12023): Found entity 1: Processador File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 8
+Info (12127): Elaborating entity "processador" for the top level hierarchy
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "disp1", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "disp2", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "disp3", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "disp4", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "valorA", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "saida", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "valorB", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "mem", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "disp5", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (10631): VHDL Process Statement warning at processador.vhd(32): inferring latch(es) for signal or variable "disp6", which holds its previous value in one or more paths through the process File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp6[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp5[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[15][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[15][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[15][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[15][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[14][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[14][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[14][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[14][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[13][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[13][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[13][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[13][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[12][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[12][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[12][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[12][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[11][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[11][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[11][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[11][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[10][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[10][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[10][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[10][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[9][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[9][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[9][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[9][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[8][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[8][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[8][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[8][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[7][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[7][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[7][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[7][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[6][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[6][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[6][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[6][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[5][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[5][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[5][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[5][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[4][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[4][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[4][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[4][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[3][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[3][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[3][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[3][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[2][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[2][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[2][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[2][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[1][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[1][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[1][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[1][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[0][3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[0][2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[0][1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "mem[0][0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[8]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[9]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[10]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[11]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[12]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[13]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[14]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[15]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[16]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[17]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[18]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[19]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[20]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[21]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[22]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[23]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[24]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[25]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[26]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[27]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[28]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[29]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[30]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorB[31]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[8]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[9]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[10]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[11]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[12]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[13]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[14]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[15]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[16]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[17]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[18]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[19]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[20]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[21]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[22]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[23]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[24]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[25]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[26]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[27]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[28]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[29]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[30]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "saida[31]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[8]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[9]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[10]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[11]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[12]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[13]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[14]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[15]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[16]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[17]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[18]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[19]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[20]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[21]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[22]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[23]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[24]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[25]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[26]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[27]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[28]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[29]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[30]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "valorA[31]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp4[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp3[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp2[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[7]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[6]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[5]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[4]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[3]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[2]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[1]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (10041): Inferred latch for "disp1[0]" at processador.vhd(32) File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 99
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 99
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 99
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_qgs.tdf
+    Info (12023): Found entity 1: mult_qgs File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/db/mult_qgs.tdf Line: 31
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_qgs:auto_generated|mac_mult7" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/db/mult_qgs.tdf Line: 67
+        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_qgs:auto_generated|mac_out8" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/db/mult_qgs.tdf Line: 91
+Info (13014): Ignored 84 buffer(s)
+    Info (13019): Ignored 84 SOFT buffer(s)
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "disp1[2]$latch" merged with LATCH primitive "disp1[5]$latch" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Info (13026): Duplicate LATCH primitive "disp1[4]$latch" merged with LATCH primitive "disp1[5]$latch" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Info (13026): Duplicate LATCH primitive "disp1[0]$latch" merged with LATCH primitive "disp1[1]$latch" File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp1[7]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp1[6]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp1[5]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp1[3]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp1[1]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[7]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[6]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[5]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[4]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[3]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[2]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[1]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp2[0]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[7]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[6]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[5]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[4]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[3]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[2]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[1]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp3[0]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp4[7]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp4[6]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp4[5]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp4[4]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp4[3]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp4[2]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp4[1]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp4[0]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[6]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[5]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[4]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[3]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[2]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[1]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp5[0]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp6[6]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp6[5]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp6[4]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp6[3]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp6[2]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch disp6[1]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch disp6[0]$latch has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal saida[31] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Warning (13012): Latch valorA[31] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[31] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[30] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[30] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[29] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[29] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[28] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[28] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[27] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[27] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[26] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[26] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[25] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[25] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[24] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[24] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[23] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[23] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[22] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[22] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[21] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[21] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[20] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[20] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[19] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[19] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[18] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[18] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[17] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[17] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[16] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[16] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[15] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[15] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[14] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[14] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[13] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[13] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[12] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[12] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[11] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[11] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[10] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[10] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[9] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[9] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[8] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[8] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[7] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[7] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[6] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[6] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[5] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[5] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[4] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[4] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorA[0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch valorB[0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[0] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[31] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[4] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[5][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[3][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[1][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[7][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[10][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[12][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[8][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[14][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[4][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[2][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[0][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[6][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[11][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[13][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[9][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[15][0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[2] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[5] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[6] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[7] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[8] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[9] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[10] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[11] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[12] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[13] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[14] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[15] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[16] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[17] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[18] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[19] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[20] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[21] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[22] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[23] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[24] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[25] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[26] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[27] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[28] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[29] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[30] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[10][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[3][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[2][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[11][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[5][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[12][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[4][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[13][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[8][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[1][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[0][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[9][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[7][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[14][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[6][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[15][1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[2] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[12][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[10][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[8][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[14][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[3][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[5][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[1][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[7][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[4][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[2][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[0][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[6][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[13][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[11][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[9][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[15][2] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[1] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[2] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch saida[0] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[1] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[3][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[10][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[2][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[11][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[12][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[5][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[4][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[13][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[1][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[8][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[0][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[9][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[14][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[7][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[6][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13012): Latch mem[15][3] has unsafe behavior File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Opcode[3] File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 14
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "disp5[7]" is stuck at VCC File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+    Warning (13410): Pin "disp6[7]" is stuck at VCC File: C:/Users/Win10/Documents/5 periodo/CIRCUITOS/PROCESSADOR_PRONTO/processador.vhd Line: 32
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3955 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 3890 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 424 warnings
+    Info: Peak virtual memory: 4820 megabytes
+    Info: Processing ended: Thu Dec 09 10:11:15 2021
+    Info: Elapsed time: 00:00:58
+    Info: Total CPU time (on all processors): 00:01:15
+
+

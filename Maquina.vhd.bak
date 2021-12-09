@@ -1,0 +1,110 @@
+--importando as bibliotecas 
+LIBRARY IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+
+--Declarando entradas e saidas
+entity Maquina_Bebidas is
+	port(
+	Botao_Refri   : IN BIT;
+	Botao_Agua 	  : IN BIT;
+	Switch_Refri  : IN BIT;
+	Switch_Agua	  : IN BIT; 
+	Letra_1       :	OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+	Letra_2       :	OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+	Letra_3       :	OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+	Numero_1      :	OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+	Numero_2      :	OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+	Numero_3      :	OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+	);
+
+	end Maquina_Bebidas;
+
+	architecture Main of Maquina_Bebidas is
+	begin	
+		
+		VARIABLE moedas  : integer
+		
+		PROCESS (Estados)
+		begin	  
+			
+			if (moedas <15) then 	    --Estado falta
+				--Falar que falta e pronto 
+				Letra_1       :	   10001110 --F
+				Letra_2       :	   10001000 --A
+				Letra_3       :	   11000111 --L
+				Numero_1      :
+				Numero_2      :					-- utilizar do 7 pra fazer , 
+				Numero_3	  :
+			elsif (moedas = 15) then	--Estado agua
+				-- colocar o led do switch agua em alta e escrever agua	
+				Letra_1       :	   10001000 --A
+				Letra_2       :	   11111111 --Nada
+				Letra_3       :	   11111111 --Nada
+				Numero_1      :
+				Numero_2      :					-- utilizar do 7 pra fazer , 
+				Numero_3	  :
+			elsif (Switch_Agua = 1) then
+			moedas := 0	
+			elsif (moedas >= 20) then
+				-- colocar o led do switch refri em alta e escrever refri 
+				-- colocar o led do switch agua em alta e escrever agua	
+				Letra_1       :	   10001000 --A
+				Letra_2       :	   10000110	--E
+				Letra_3       :	   11001110 --R
+				Numero_1      :
+				Numero_2      :					-- utilizar do 7 pra fazer , 
+				Numero_3	  :	
+				
+		end if;
+		end PROCESS; 
+			
+			
+		PROCESS (Compra)
+		begin 
+			
+			if (moedas =15 and Switch_Agua = 1) then
+				moedas := 0
+			elsif (moedas >= 20 and Switch_Refri = 1) then
+				moedas := 0
+			elsif (moedinhas >= 20 and Switch_Agua = 1) then
+				moedas := 0
+				
+		end if;
+		end PROCESS;		
+		
+	
+	
+	
+	end main;
+	
+	
+	
+	
+	--0 = 11000000
+	
+--1 = 11111001
+	
+--2 = 10100100
+	
+--3 = 10110000
+	
+--4 = 10011001
+	
+--5 = 10010010
+	
+--6 = 10000010
+
+	--7 = 11111000
+	
+--8 = 10000000
+
+	--9 = 10011000 
+	--A = 10001000
+	--E = 10000110
+	--R = 11001110
+	--F = 10001110
+	--L = 11000111
+	
+	
